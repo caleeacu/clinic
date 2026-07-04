@@ -86,9 +86,25 @@
     document.body.insertAdjacentHTML('beforeend', html);
   }
 
+  function trackConversions(){
+    // Book Now / 문자 / 이메일 클릭을 GA4 이벤트로 전송
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a');
+      if (!a || typeof gtag !== 'function') return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('book.squareup.com') !== -1) {
+        gtag('event', 'book_now_click', {link_text: a.textContent.trim(), page: location.pathname});
+      } else if (href.indexOf('sms:') === 0) {
+        gtag('event', 'text_click', {page: location.pathname});
+      } else if (href.indexOf('mailto:') === 0) {
+        gtag('event', 'email_click', {page: location.pathname});
+      }
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function(){ buildHeader(); buildFooter(); });
+    document.addEventListener('DOMContentLoaded', function(){ buildHeader(); buildFooter(); trackConversions(); });
   } else {
-    buildHeader(); buildFooter();
+    buildHeader(); buildFooter(); trackConversions();
   }
 })();
