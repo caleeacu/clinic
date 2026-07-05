@@ -80,7 +80,7 @@
               '<a href="' + RESEARCH_URL + '" target="_blank" rel="noopener">Research Center &#8599;</a>' +
             '</div>' +
           '</div>' +
-          '<div class="footer-bottom">&copy; ' + year + ' CALee Acupuncture. All rights reserved.</div>' +
+          '<div class="footer-bottom">&copy; ' + year + ' CALee Acupuncture. All rights reserved. &middot; <a href="privacy.html" style="color:inherit;">Privacy Policy</a></div>' +
         '</div>' +
       '</footer>';
     document.body.insertAdjacentHTML('beforeend', html);
