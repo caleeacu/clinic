@@ -77,10 +77,11 @@
               '<a href="about.html">About the Practice</a>' +
               '<a href="services.html">Clinical Services</a>' +
               '<a href="contact.html">Book an Appointment</a>' +
+              '<a href="https://g.page/r/CUFmN1x_BblgEAI/review" target="_blank" rel="noopener">Leave a Google Review &#8599;</a>' +
               '<a href="' + RESEARCH_URL + '" target="_blank" rel="noopener">Research Center &#8599;</a>' +
             '</div>' +
           '</div>' +
-          '<div class="footer-bottom">&copy; ' + year + ' CALee Acupuncture. All rights reserved. &middot; <a href="privacy.html" style="color:inherit;">Privacy Policy</a></div>' +
+          '<div class="footer-bottom">&copy; ' + year + ' CALee Acupuncture. All rights reserved.</div>' +
         '</div>' +
       '</footer>';
     document.body.insertAdjacentHTML('beforeend', html);
@@ -98,6 +99,8 @@
         gtag('event', 'text_click', {page: location.pathname});
       } else if (href.indexOf('mailto:') === 0) {
         gtag('event', 'email_click', {page: location.pathname});
+      } else if (href.indexOf('g.page') !== -1) {
+        gtag('event', 'review_click', {page: location.pathname});
       }
     });
   }

@@ -542,3 +542,7 @@ main{margin-top:var(--nav-h);}
   .directions-panel{padding:32px 24px;}
   .directions-panel .cta-ghost{width:100%;}
 }
+
+/* ── v8: google review CTA ── */
+.ca-review{border-left:3px solid var(--accent);}
+.ca-review:hover{background:var(--accent-soft);}
